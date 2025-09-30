@@ -1,5 +1,17 @@
 let cookie = document.querySelector('.cookie_number');
+let parsedCookie = parseFloat(cookie.innerHTML);
+
+let cursorCost = document.querySelector('.cursor_cost');
+let parsedCursor = parseFloat(cursorCost.innerHTML);
 
 function countCookie() {
-    cookie.innerHTML = parseFloat(cookie.innerHTML) + 1;
+    parsedCookie  += 1;
+    cookie.innerHTML = parsedCookie;
+}
+
+function buyCursor() {
+    if (parsedCookie >= parsedCursor) {
+    parsedCookie -= parsedCursor;
+    cookie.innerHTML = parsedCookie;
+}
 }
