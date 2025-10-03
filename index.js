@@ -1,14 +1,21 @@
 let cKie = 1;
 
+let cKies = 0;
+
 let cookie = document.querySelector('.cookie_number');
 let parsedCookie = parseFloat(cookie.innerHTML);
 
 let cursorCost = document.querySelector('.cursor_cost');
 let parsedCursor = parseFloat(cursorCost.innerHTML);
-
 let cursorLevel = document.querySelector('.cursor_level');
 let cursorIncreas = document.querySelector('.cursor_increas');
 let parsedCursorIncreas = parseFloat(cursorIncreas.innerHTML);
+
+let grandmaCost = document.querySelector('.grandma_cost');
+let parsedGrandma = parseFloat(grandmaCost.innerHTML);
+let grandmaLevel = document.querySelector('.grandma_level');
+let grandmaIncreas = document.querySelector('.grandma_increas');
+let parsedGrandmaIncreas = parseFloat(grandmaIncreas.innerHTML);
 
 
 
@@ -30,3 +37,24 @@ function buyCursor() {
     cursorCost.innerHTML = Math.round(parsedCursor); 
 }
 }
+
+
+function buyGrandma() {
+    if (parsedCookie >= parsedGrandma) {
+    cookie.innerHTML = Math.round(parsedCookie -= parsedGrandma);
+
+    grandmaLevel.innerHTML ++;
+
+    parsedGrandmaIncreas = parseFloat((parsedGrandmaIncreas * 1.03).toFixed(2));
+    grandmaIncreas.innerHTML = parsedGrandmaIncreas
+    cKies += parsedGrandmaIncreas;
+
+    parsedGrandma *= 1.17;
+    grandmaCost.innerHTML = Math.round(parsedGrandma); 
+}
+}
+
+setInterval( () => {
+    parsedCookie += cKies / 10;
+    cookie.innerHTML = Math.round(parsedCookie);
+}, 100);
