@@ -17,6 +17,12 @@ let grandmaLevel = document.querySelector('.grandma_level');
 let grandmaIncreas = document.querySelector('.grandma_increas');
 let parsedGrandmaIncreas = parseFloat(grandmaIncreas.innerHTML);
 
+let farmCost = document.querySelector('.farm_cost');
+let parsedFarm = parseFloat(farmCost.innerHTML);
+let farmLevel = document.querySelector('.farm_level');
+let farmIncreas = document.querySelector('.farm_increas');
+let parsedFarmIncreas = parseFloat(farmIncreas.innerHTML);
+
 
 
 function countCookie() {
@@ -51,6 +57,23 @@ function buyGrandma() {
 
     parsedGrandma *= 1.17;
     grandmaCost.innerHTML = Math.round(parsedGrandma); 
+}
+}
+
+
+
+function buyFarm() {
+    if (parsedCookie >= parsedFarm) {
+    cookie.innerHTML = Math.round(parsedCookie -= parsedFarm);
+
+    farmLevel.innerHTML ++;
+
+    parsedFarmIncreas = parseFloat((parsedFarmIncreas * 1.03).toFixed(2));
+    farmIncreas.innerHTML = parsedFarmIncreas
+    cKies += parsedFarmIncreas;
+
+    parsedFarm *= 1.17;
+    farmCost.innerHTML = Math.round(parsedFarm); 
 }
 }
 
