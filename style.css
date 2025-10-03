@@ -5,6 +5,7 @@ body {
     margin: 0%;
     padding: 0%;
     background-color: rgb(247, 247, 247);
+    background-image: url('photos/middle-background.png');
 }
 
 p, h4 {
@@ -15,6 +16,9 @@ p, h4 {
 .main {
     display: flex;
     gap: 200px;
+    color: rgb(79, 79, 79);
+    border: 2px white solid ;
+    border-radius: 10px;
 }
 .left h3 {
     text-align: center;
@@ -40,12 +44,13 @@ p, h4 {
     align-items: center;
     width: 330px;
     height: 60px;
-    border:5px solid rgb(0, 0, 0) ;
+    border:5px solid rgb(255, 255, 255) ;
     justify-content: space-between;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.549);
 }
 .cost_info {
     position: relative;
