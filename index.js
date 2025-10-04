@@ -127,3 +127,39 @@ setInterval( () => {
     parsedCookie += cKies / 10;
     cookie.innerHTML = Math.round(parsedCookie);
 }, 100);
+
+
+  const lightBtn = document.getElementById("light_mode");
+  const darkBtn = document.getElementById("dark_mode");
+  const body = document.body;
+  const main = document.querySelector(".main");
+  const right = document.querySelector(".right");
+  const upgrades = document.querySelectorAll(".upgrade");
+
+  
+  
+  
+  darkBtn.addEventListener("click", () => {
+    body.style.backgroundImage = "url('photos/dark_back.jpeg')";
+    main.style.color = "rgb(255, 255, 255)";
+    right.style.color = "rgb(255, 255, 255)";
+    upgrades.forEach(upgrade => {
+   upgrade.style.borderColor = "rgba(60, 60, 60, 1)";
+   upgrade.style.backgroundColor = "rgba(0, 0, 0, 0)";
+   });
+    darkBtn.style.display = "none";
+    lightBtn.style.display = "block";
+  });
+
+
+  lightBtn.addEventListener("click", () => {
+  body.style.backgroundImage = "url('photos/middle-background.png')";
+  main.style.color = "rgb(79, 79, 79)";
+  right.style.color = "rgb(79, 79, 79)";
+  upgrades.forEach(upgrade => {
+    upgrade.style.borderColor = "white";
+    upgrade.style.backgroundColor = "rgba(255, 255, 255, 0.549)";
+  });
+  lightBtn.style.display = "none";
+  darkBtn.style.display = "block";
+  });
