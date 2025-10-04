@@ -8,7 +8,7 @@ body {
     background-image: url('photos/middle-background.png');
 }
 
-p, h4 {
+p, h4, h1 {
     margin: 0px;
     padding: 0px;
 }
