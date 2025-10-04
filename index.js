@@ -23,6 +23,18 @@ let farmLevel = document.querySelector('.farm_level');
 let farmIncreas = document.querySelector('.farm_increas');
 let parsedFarmIncreas = parseFloat(farmIncreas.innerHTML);
 
+let mineCost = document.querySelector('.mine_cost');
+let parsedMine = parseFloat(mineCost.innerHTML);
+let mineLevel = document.querySelector('.mine_level');
+let mineIncreas = document.querySelector('.mine_increas');
+let parsedMineIncreas = parseFloat(mineIncreas.innerHTML);
+
+let fatoryCost = document.querySelector('.fatory_cost');
+let parsedFatory = parseFloat(fatoryCost.innerHTML);
+let fatoryLevel = document.querySelector('.fatory_level');
+let fatoryIncreas = document.querySelector('.fatory_increas');
+let parsedFatoryIncreas = parseFloat(fatoryIncreas.innerHTML);
+
 
 
 function countCookie() {
@@ -39,7 +51,7 @@ function buyCursor() {
     cursorIncreas.innerHTML = parsedCursorIncreas
     cKie += parsedCursorIncreas;
 
-    parsedCursor *= 1.17;
+    parsedCursor *= 1.15;
     cursorCost.innerHTML = Math.round(parsedCursor); 
 }
 }
@@ -55,7 +67,7 @@ function buyGrandma() {
     grandmaIncreas.innerHTML = parsedGrandmaIncreas
     cKies += parsedGrandmaIncreas;
 
-    parsedGrandma *= 1.17;
+    parsedGrandma *= 1.15;
     grandmaCost.innerHTML = Math.round(parsedGrandma); 
 }
 }
@@ -72,8 +84,42 @@ function buyFarm() {
     farmIncreas.innerHTML = parsedFarmIncreas
     cKies += parsedFarmIncreas;
 
-    parsedFarm *= 1.17;
+    parsedFarm *= 1.15;
     farmCost.innerHTML = Math.round(parsedFarm); 
+}
+}
+
+
+
+function buyMine() {
+    if (parsedCookie >= parsedMine) {
+    cookie.innerHTML = Math.round(parsedCookie -= parsedMine);
+
+    mineLevel.innerHTML ++;
+
+    parsedMineIncreas = parseFloat((parsedMineIncreas * 1.03).toFixed(2));
+    mineIncreas.innerHTML = parsedMineIncreas
+    cKies += parsedMineIncreas;
+
+    parsedMine *= 1.15;
+    mineCost.innerHTML = Math.round(parsedMine); 
+}
+}
+
+
+
+function buyFatory() {
+    if (parsedCookie >= parsedFatory) {
+    cookie.innerHTML = Math.round(parsedCookie -= parsedFatory);
+
+    fatoryLevel.innerHTML ++;
+
+    parsedFatoryIncreas = parseFloat((parsedFatoryIncreas * 1.03).toFixed(2));
+    fatoryIncreas.innerHTML = parsedFatoryIncreas
+    cKies += parsedFatoryIncreas;
+
+    parsedFatory *= 1.15;
+    fatoryCost.innerHTML = Math.round(parsedFatory); 
 }
 }
 
