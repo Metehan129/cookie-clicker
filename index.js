@@ -35,6 +35,24 @@ let fatoryLevel = document.querySelector('.fatory_level');
 let fatoryIncreas = document.querySelector('.fatory_increas');
 let parsedFatoryIncreas = parseFloat(fatoryIncreas.innerHTML);
 
+let bankCost = document.querySelector('.bank_cost');
+let parsedBank = parseFloat(bankCost.innerHTML);
+let bankLevel = document.querySelector('.bank_level');
+let bankIncreas = document.querySelector('.bank_increas');
+let parsedBankIncreas = parseFloat(bankIncreas.innerHTML);
+
+let templeCost = document.querySelector('.temple_cost');
+let parsedTemple = parseFloat(templeCost.innerHTML);
+let templeLevel = document.querySelector('.temple_level');
+let templeIncreas = document.querySelector('.temple_increas');
+let parsedTempleIncreas = parseFloat(templeIncreas.innerHTML);
+
+let castleCost = document.querySelector('.castle_cost');
+let parsedCastle = parseFloat(castleCost.innerHTML);
+let castleLevel = document.querySelector('.castle_level');
+let castleIncreas = document.querySelector('.castle_increas');
+let parsedCastleIncreas = parseFloat(castleIncreas.innerHTML);
+
 
 
 function countCookie() {
@@ -73,7 +91,6 @@ function buyGrandma() {
 }
 
 
-
 function buyFarm() {
     if (parsedCookie >= parsedFarm) {
     cookie.innerHTML = Math.round(parsedCookie -= parsedFarm);
@@ -88,7 +105,6 @@ function buyFarm() {
     farmCost.innerHTML = Math.round(parsedFarm); 
 }
 }
-
 
 
 function buyMine() {
@@ -107,7 +123,6 @@ function buyMine() {
 }
 
 
-
 function buyFatory() {
     if (parsedCookie >= parsedFatory) {
     cookie.innerHTML = Math.round(parsedCookie -= parsedFatory);
@@ -123,6 +138,55 @@ function buyFatory() {
 }
 }
 
+
+function buyBank() {
+    if (parsedCookie >= parsedBank) {
+    cookie.innerHTML = Math.round(parsedCookie -= parsedBank);
+
+    bankLevel.innerHTML ++;
+
+    parsedBankIncreas = parseFloat((parsedBankIncreas * 1.03).toFixed(2));
+    bankIncreas.innerHTML = parsedBankIncreas
+    cKies += parsedBankIncreas;
+
+    parsedBank *= 1.15;
+    bankCost.innerHTML = Math.round(parsedBank); 
+}
+}
+
+
+function buyTemple() {
+    if (parsedCookie >= parsedTemple) {
+    cookie.innerHTML = Math.round(parsedCookie -= parsedTemple);
+
+    templeLevel.innerHTML ++;
+
+    parsedTempleIncreas = parseFloat((parsedTempleIncreas * 1.03).toFixed(2));
+    templeIncreas.innerHTML = parsedTempleIncreas
+    cKies += parsedTempleIncreas;
+
+    parsedTemple *= 1.15;
+    templeCost.innerHTML = Math.round(parsedTemple); 
+}
+}
+
+
+function buyCastle() {
+    if (parsedCookie >= parsedCastle) {
+    cookie.innerHTML = Math.round(parsedCookie -= parsedCastle);
+
+    castleLevel.innerHTML ++;
+
+    parsedCastleIncreas = parseFloat((parsedCastleIncreas * 1.03).toFixed(2));
+    castleIncreas.innerHTML = parsedCastleIncreas
+    cKies += parsedCastleIncreas;
+
+    parsedCastle *= 1.15;
+    castleCost.innerHTML = Math.round(parsedCastle); 
+}
+}
+
+
 setInterval( () => {
     parsedCookie += cKies / 10;
     cookie.innerHTML = Math.round(parsedCookie);
@@ -136,9 +200,6 @@ setInterval( () => {
   const right = document.querySelector(".right");
   const upgrades = document.querySelectorAll(".upgrade");
 
-  
-  
-  
   darkBtn.addEventListener("click", () => {
     body.style.backgroundImage = "url('photos/dark_back.jpeg')";
     main.style.color = "rgb(255, 255, 255)";
@@ -150,7 +211,6 @@ setInterval( () => {
     darkBtn.style.display = "none";
     lightBtn.style.display = "block";
   });
-
 
   lightBtn.addEventListener("click", () => {
   body.style.backgroundImage = "url('photos/middle-background.png')";
