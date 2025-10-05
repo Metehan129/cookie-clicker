@@ -1,5 +1,4 @@
 let cKie = 1;
-
 let cKies = 0;
 
 let cookie = document.querySelector('.cookie_number');
@@ -53,6 +52,9 @@ let castleLevel = document.querySelector('.castle_level');
 let castleIncreas = document.querySelector('.castle_increas');
 let parsedCastleIncreas = parseFloat(castleIncreas.innerHTML);
 
+let ckieTotall = document.getElementById("ckie-totall");
+let ckiesTotall = document.getElementById("ckies-totall");
+
 
 
 function countCookie() {
@@ -65,9 +67,9 @@ function buyCursor() {
 
     cursorLevel.innerHTML ++;
 
-    parsedCursorIncreas = parseFloat((parsedCursorIncreas * 1.03).toFixed(2));
+    parsedCursorIncreas = parseFloat(parsedCursorIncreas)
     cursorIncreas.innerHTML = parsedCursorIncreas
-    cKie += parsedCursorIncreas;
+    cKies += parsedCursorIncreas;
 
     parsedCursor *= 1.15;
     cursorCost.innerHTML = Math.round(parsedCursor); 
@@ -81,7 +83,7 @@ function buyGrandma() {
 
     grandmaLevel.innerHTML ++;
 
-    parsedGrandmaIncreas = parseFloat((parsedGrandmaIncreas * 1.03).toFixed(2));
+    parsedGrandmaIncreas = parseFloat(parsedGrandmaIncreas)
     grandmaIncreas.innerHTML = parsedGrandmaIncreas
     cKies += parsedGrandmaIncreas;
 
@@ -97,7 +99,7 @@ function buyFarm() {
 
     farmLevel.innerHTML ++;
 
-    parsedFarmIncreas = parseFloat((parsedFarmIncreas * 1.03).toFixed(2));
+    parsedFarmIncreas = parseFloat(parsedFarmIncreas)
     farmIncreas.innerHTML = parsedFarmIncreas
     cKies += parsedFarmIncreas;
 
@@ -113,7 +115,7 @@ function buyMine() {
 
     mineLevel.innerHTML ++;
 
-    parsedMineIncreas = parseFloat((parsedMineIncreas * 1.03).toFixed(2));
+    parsedMineIncreas = parseFloat(parsedMineIncreas)
     mineIncreas.innerHTML = parsedMineIncreas
     cKies += parsedMineIncreas;
 
@@ -129,7 +131,7 @@ function buyFatory() {
 
     fatoryLevel.innerHTML ++;
 
-    parsedFatoryIncreas = parseFloat((parsedFatoryIncreas * 1.03).toFixed(2));
+    parsedFatoryIncreas = parseFloat(parsedFatoryIncreas)
     fatoryIncreas.innerHTML = parsedFatoryIncreas
     cKies += parsedFatoryIncreas;
 
@@ -145,7 +147,7 @@ function buyBank() {
 
     bankLevel.innerHTML ++;
 
-    parsedBankIncreas = parseFloat((parsedBankIncreas * 1.03).toFixed(2));
+    parsedBankIncreas = parseFloat(parsedBankIncreas)
     bankIncreas.innerHTML = parsedBankIncreas
     cKies += parsedBankIncreas;
 
@@ -161,7 +163,7 @@ function buyTemple() {
 
     templeLevel.innerHTML ++;
 
-    parsedTempleIncreas = parseFloat((parsedTempleIncreas * 1.03).toFixed(2));
+    parsedTempleIncreas = parseFloat(parsedTempleIncreas)
     templeIncreas.innerHTML = parsedTempleIncreas
     cKies += parsedTempleIncreas;
 
@@ -177,7 +179,7 @@ function buyCastle() {
 
     castleLevel.innerHTML ++;
 
-    parsedCastleIncreas = parseFloat((parsedCastleIncreas * 1.03).toFixed(2));
+    parsedCastleIncreas = parseFloat(parsedCastleIncreas)
     castleIncreas.innerHTML = parsedCastleIncreas
     cKies += parsedCastleIncreas;
 
@@ -190,6 +192,7 @@ function buyCastle() {
 setInterval( () => {
     parsedCookie += cKies / 10;
     cookie.innerHTML = Math.round(parsedCookie);
+    ckiesTotall.innerHTML = Math.round(cKies);
 }, 100);
 
 
@@ -198,12 +201,16 @@ setInterval( () => {
   const body = document.body;
   const main = document.querySelector(".main");
   const right = document.querySelector(".right");
+  const next_level_info = document.querySelectorAll(".next_level_info");
   const upgrades = document.querySelectorAll(".upgrade");
 
   darkBtn.addEventListener("click", () => {
     body.style.backgroundImage = "url('photos/dark_back.jpeg')";
     main.style.color = "rgb(255, 255, 255)";
     right.style.color = "rgb(255, 255, 255)";
+    next_level_info.forEach(next_level_info => {
+   next_level_info.style.backgroundColor = "rgba(0, 0, 0, 0)";
+   });
     upgrades.forEach(upgrade => {
    upgrade.style.borderColor = "rgba(60, 60, 60, 1)";
    upgrade.style.backgroundColor = "rgba(0, 0, 0, 0)";
@@ -216,6 +223,9 @@ setInterval( () => {
   body.style.backgroundImage = "url('photos/middle-background.png')";
   main.style.color = "rgb(79, 79, 79)";
   right.style.color = "rgb(79, 79, 79)";
+      next_level_info.forEach(next_level_info => {
+   next_level_info.style.backgroundColor = "rgba(255, 255, 255, 0.639)";
+   });
   upgrades.forEach(upgrade => {
     upgrade.style.borderColor = "white";
     upgrade.style.backgroundColor = "rgba(255, 255, 255, 0.549)";
