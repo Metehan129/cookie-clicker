@@ -1,192 +1,55 @@
 let cKie = 1;
 let cKies = 0;
 
-let cookie = document.querySelector('.cookie_number');
-let parsedCookie = parseFloat(cookie.innerHTML);
+class Production{
+    costElement;
+    cost;
+    levelElement;
+    increaseElement;
+    increase;
 
-let cursorCost = document.querySelector('.cursor_cost');
-let parsedCursor = parseFloat(cursorCost.innerHTML);
-let cursorLevel = document.querySelector('.cursor_level');
-let cursorIncreas = document.querySelector('.cursor_increas');
-let parsedCursorIncreas = parseFloat(cursorIncreas.innerHTML);
+    constructor(classText){
+        this.costElement = document.querySelector('.' + classText + '_cost');
+        this.cost = parseFloat(this.costElement.innerHTML);
+        this.levelElement = document.querySelector('.' + classText + '_level');
+        this.increaseElement = document.querySelector('.' + classText + '_increas');
+        this.increase = parseFloat(this.increaseElement.innerHTML);
+    }
 
-let grandmaCost = document.querySelector('.grandma_cost');
-let parsedGrandma = parseFloat(grandmaCost.innerHTML);
-let grandmaLevel = document.querySelector('.grandma_level');
-let grandmaIncreas = document.querySelector('.grandma_increas');
-let parsedGrandmaIncreas = parseFloat(grandmaIncreas.innerHTML);
+    buy() {
+        if (parsedCookie >= this.cost) {
+            cookie.innerHTML = Math.round(parsedCookie -= this.cost);
 
-let farmCost = document.querySelector('.farm_cost');
-let parsedFarm = parseFloat(farmCost.innerHTML);
-let farmLevel = document.querySelector('.farm_level');
-let farmIncreas = document.querySelector('.farm_increas');
-let parsedFarmIncreas = parseFloat(farmIncreas.innerHTML);
+            this.levelElement.innerHTML ++;
 
-let mineCost = document.querySelector('.mine_cost');
-let parsedMine = parseFloat(mineCost.innerHTML);
-let mineLevel = document.querySelector('.mine_level');
-let mineIncreas = document.querySelector('.mine_increas');
-let parsedMineIncreas = parseFloat(mineIncreas.innerHTML);
+            this.increase = this.increase
+            this.increaseElement.innerHTML = this.increase
+            cKies += this.increase;
 
-let fatoryCost = document.querySelector('.fatory_cost');
-let parsedFatory = parseFloat(fatoryCost.innerHTML);
-let fatoryLevel = document.querySelector('.fatory_level');
-let fatoryIncreas = document.querySelector('.fatory_increas');
-let parsedFatoryIncreas = parseFloat(fatoryIncreas.innerHTML);
+            this.cost *= 1.15;
+            this.costElement.innerHTML = Math.round(this.cost); 
+        }
+    }
+}
 
-let bankCost = document.querySelector('.bank_cost');
-let parsedBank = parseFloat(bankCost.innerHTML);
-let bankLevel = document.querySelector('.bank_level');
-let bankIncreas = document.querySelector('.bank_increas');
-let parsedBankIncreas = parseFloat(bankIncreas.innerHTML);
-
-let templeCost = document.querySelector('.temple_cost');
-let parsedTemple = parseFloat(templeCost.innerHTML);
-let templeLevel = document.querySelector('.temple_level');
-let templeIncreas = document.querySelector('.temple_increas');
-let parsedTempleIncreas = parseFloat(templeIncreas.innerHTML);
-
-let castleCost = document.querySelector('.castle_cost');
-let parsedCastle = parseFloat(castleCost.innerHTML);
-let castleLevel = document.querySelector('.castle_level');
-let castleIncreas = document.querySelector('.castle_increas');
-let parsedCastleIncreas = parseFloat(castleIncreas.innerHTML);
 
 let ckieTotall = document.getElementById("ckie-totall");
 let ckiesTotall = document.getElementById("ckies-totall");
+let cookie = document.querySelector('.cookie_number');
+let parsedCookie = parseFloat(cookie.innerHTML);
+
+let cursor = new Production('cursor');
+let grandma = new Production('grandma');
+let farm = new Production('farm');
+let mine = new Production('mine');
+let factory = new Production('factory');
+let bank = new Production('bank');
+let temple = new Production('temple');
+let castle = new Production('castle');
 
 
 
-function countCookie() {
-    cookie.innerHTML = Math.round(parsedCookie += cKie);
-}
 
-function buyCursor() {
-    if (parsedCookie >= parsedCursor) {
-    cookie.innerHTML = Math.round(parsedCookie -= parsedCursor);
-
-    cursorLevel.innerHTML ++;
-
-    parsedCursorIncreas = parseFloat(parsedCursorIncreas)
-    cursorIncreas.innerHTML = parsedCursorIncreas
-    cKies += parsedCursorIncreas;
-
-    parsedCursor *= 1.15;
-    cursorCost.innerHTML = Math.round(parsedCursor); 
-}
-}
-
-
-function buyGrandma() {
-    if (parsedCookie >= parsedGrandma) {
-    cookie.innerHTML = Math.round(parsedCookie -= parsedGrandma);
-
-    grandmaLevel.innerHTML ++;
-
-    parsedGrandmaIncreas = parseFloat(parsedGrandmaIncreas)
-    grandmaIncreas.innerHTML = parsedGrandmaIncreas
-    cKies += parsedGrandmaIncreas;
-
-    parsedGrandma *= 1.15;
-    grandmaCost.innerHTML = Math.round(parsedGrandma); 
-}
-}
-
-
-function buyFarm() {
-    if (parsedCookie >= parsedFarm) {
-    cookie.innerHTML = Math.round(parsedCookie -= parsedFarm);
-
-    farmLevel.innerHTML ++;
-
-    parsedFarmIncreas = parseFloat(parsedFarmIncreas)
-    farmIncreas.innerHTML = parsedFarmIncreas
-    cKies += parsedFarmIncreas;
-
-    parsedFarm *= 1.15;
-    farmCost.innerHTML = Math.round(parsedFarm); 
-}
-}
-
-
-function buyMine() {
-    if (parsedCookie >= parsedMine) {
-    cookie.innerHTML = Math.round(parsedCookie -= parsedMine);
-
-    mineLevel.innerHTML ++;
-
-    parsedMineIncreas = parseFloat(parsedMineIncreas)
-    mineIncreas.innerHTML = parsedMineIncreas
-    cKies += parsedMineIncreas;
-
-    parsedMine *= 1.15;
-    mineCost.innerHTML = Math.round(parsedMine); 
-}
-}
-
-
-function buyFatory() {
-    if (parsedCookie >= parsedFatory) {
-    cookie.innerHTML = Math.round(parsedCookie -= parsedFatory);
-
-    fatoryLevel.innerHTML ++;
-
-    parsedFatoryIncreas = parseFloat(parsedFatoryIncreas)
-    fatoryIncreas.innerHTML = parsedFatoryIncreas
-    cKies += parsedFatoryIncreas;
-
-    parsedFatory *= 1.15;
-    fatoryCost.innerHTML = Math.round(parsedFatory); 
-}
-}
-
-
-function buyBank() {
-    if (parsedCookie >= parsedBank) {
-    cookie.innerHTML = Math.round(parsedCookie -= parsedBank);
-
-    bankLevel.innerHTML ++;
-
-    parsedBankIncreas = parseFloat(parsedBankIncreas)
-    bankIncreas.innerHTML = parsedBankIncreas
-    cKies += parsedBankIncreas;
-
-    parsedBank *= 1.15;
-    bankCost.innerHTML = Math.round(parsedBank); 
-}
-}
-
-
-function buyTemple() {
-    if (parsedCookie >= parsedTemple) {
-    cookie.innerHTML = Math.round(parsedCookie -= parsedTemple);
-
-    templeLevel.innerHTML ++;
-
-    parsedTempleIncreas = parseFloat(parsedTempleIncreas)
-    templeIncreas.innerHTML = parsedTempleIncreas
-    cKies += parsedTempleIncreas;
-
-    parsedTemple *= 1.15;
-    templeCost.innerHTML = Math.round(parsedTemple); 
-}
-}
-
-
-function buyCastle() {
-    if (parsedCookie >= parsedCastle) {
-    cookie.innerHTML = Math.round(parsedCookie -= parsedCastle);
-
-    castleLevel.innerHTML ++;
-
-    parsedCastleIncreas = parseFloat(parsedCastleIncreas)
-    castleIncreas.innerHTML = parsedCastleIncreas
-    cKies += parsedCastleIncreas;
-
-    parsedCastle *= 1.15;
-    castleCost.innerHTML = Math.round(parsedCastle); 
-}
-}
 
 
 setInterval( () => {
@@ -201,6 +64,7 @@ setInterval( () => {
   const body = document.body;
   const main = document.querySelector(".main");
   const right = document.querySelector(".right");
+  const stats = document.querySelector(".stats");
   const next_level_info = document.querySelectorAll(".next_level_info");
   const upgrades = document.querySelectorAll(".upgrade");
 
@@ -208,6 +72,7 @@ setInterval( () => {
     body.style.backgroundImage = "url('photos/dark_back.jpeg')";
     main.style.color = "rgb(255, 255, 255)";
     right.style.color = "rgb(255, 255, 255)";
+    stats.style.backgroundColor = "rgba(255, 255, 255, 0)";
     next_level_info.forEach(next_level_info => {
    next_level_info.style.backgroundColor = "rgba(0, 0, 0, 0)";
    });
@@ -223,7 +88,8 @@ setInterval( () => {
   body.style.backgroundImage = "url('photos/middle-background.png')";
   main.style.color = "rgb(79, 79, 79)";
   right.style.color = "rgb(79, 79, 79)";
-      next_level_info.forEach(next_level_info => {
+  stats.style.backgroundColor = "rgba(255, 255, 255, 0.639)";
+  next_level_info.forEach(next_level_info => {
    next_level_info.style.backgroundColor = "rgba(255, 255, 255, 0.639)";
    });
   upgrades.forEach(upgrade => {
